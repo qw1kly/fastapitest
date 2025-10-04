@@ -4,28 +4,12 @@ import uvicorn
 
 
 from routes import post
-
-from contextlib import asynccontextmanager
 import asyncio
-from background_tasks import run_background_tasks
-
-background_task = None
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    global background_task
-    background_task = asyncio.create_task(run_background_tasks())
-    yield
-    if background_task:
-        background_task.cancel()
-        try:
-            await background_task
-        except asyncio.CancelledError:
-            pass
 
 
 
-app = FastAPI(lifespan=lifespan)
+
+app = FastAPI()
 app.include_router(post.router)
 
 
@@ -39,4 +23,5 @@ app.add_middleware(
 
 
 if __name__ == "__main__":
+
     uvicorn.run(app, host="0.0.0.0")
