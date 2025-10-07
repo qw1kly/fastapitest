@@ -51,6 +51,7 @@ class Getter(MainAPI):
         async with aiohttp.ClientSession() as session:
             async with session.get(URL, headers=self.HEADERS) as response:
                 response_data = await response.json()
+                print(response_data)
         return response_data['results']
 
 
@@ -126,3 +127,4 @@ class Getter(MainAPI):
         async with aiohttp.ClientSession() as session:
             async with session.post(URL, headers=self.HEADERS, json=PAYLOAD) as response:
                 response_data = await response.json()
+
