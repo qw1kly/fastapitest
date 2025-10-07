@@ -2,14 +2,20 @@ import asyncio
 from utils.roullete import do_a_spin
 import time
 import random
+from utils.gifts_collections import collection_roulette, models_roulette
+
 
 async def spin_exchanger(id, balance, roullete_id):
-    matrix_gpsh = await asyncio.create_task(do_a_spin(roulette_id=roullete_id))
+    from APIintergrations.request_manager import price_getter_instance
+    matrix_gpsh, current_models = await asyncio.create_task(do_a_spin(roulette_id=roullete_id))
     flag = False
     if matrix_gpsh[1][0] == matrix_gpsh[1][1] and matrix_gpsh[1][1] == matrix_gpsh[1][2]:
         flag = True
         if roullete_id == 1 and matrix_gpsh[1][0] in [4, 5, 6]:
             return [matrix_gpsh, roullete_id]
+        gift = collection_roulette[roullete_id][matrix_gpsh[1][0]-1]
+        gift_id, gift_name, gift_price, image_url, tg_id = await asyncio.create_task(price_getter_instance.id_getter(gift, current_models))
+        return [matrix_gpsh, roullete_id, image_url, gift_price]
     casino = random.randint(1, 6)
     if casino == 1 and not(flag):
         if roullete_id == 1:
@@ -32,5 +38,4 @@ async def spin_exchanger(id, balance, roullete_id):
                 indexes = [1, 2, 3, 4, 5, 6]
                 indexes.remove(which_gift)
                 matrix_gpsh[1] = [which_gift, which_gift, indexes[random.randint(0, 4)]]
-
     return [matrix_gpsh, roullete_id]
