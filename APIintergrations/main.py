@@ -13,7 +13,7 @@ _client = None
 def get_client():
     global _client
     if _client is None:
-        _client = Client('main', api_id=keys.api_id, api_hash=keys.api_hash)
+        _client = Client('main', api_id=28311789, api_hash="c655b9344e4e2f567bc2d4aae75ff1c5")
     return _client
 
 
@@ -53,4 +53,5 @@ async def close_client():
     global _client
     if _client and _client.is_connected:
         await _client.stop()
+
         _client = None
