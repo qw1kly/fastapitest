@@ -5,7 +5,7 @@ collection_roulette = {
       3 : ["stellarrocket", "gingercookie", "lightsword", "jollychimp", "diamondring", "swisswatch"],
       4 : ["deskcalendar", "lolpop", "inputkey", "diamondring", "signetring", "artisanbrick"],
       5 : ["stellarrocket", "inputkey", "tophat", "swisswatch", "genielamp", "heroichelmet"],
-      6 : ["inputkey", "tophat", "diamondring", "magicpotion", "astralshard", "durovscap"],
+      6 : ["jollychimp", "crystalball", "vintagecigar", "bondedring", "artisanbrick", "preciouspeach"],
       7 : ["ionicdryer", "diamondring", "swisswatch", "mightyarm", "preciouspeach", "heartlocket"],
       8 : ["lowrider", "genielamp","minioscar", "preciouspeach", "durovscap", "plushpepe"],
       9: ["deskcalendar", "bdaycandle", "candycane", "swagbag", "snoopdogg", "jollychimp"]
@@ -813,4 +813,20 @@ models_roulette = {
 collection_saper = {
       1 : ["stellarrocket", "gingercookie", "jollychimp", "diamondring", "minioscar"],
       2 : ["bunnymuffin","inputkey", "tophat", "genielamp", "artisanbrick"]
+}
+
+
+groups = {
+    6: {
+        1: {"symbol": 1, "models": None, "weight": 15},
+        2: {"symbol": 1, "models": ['Chimpool', 'Golden Monkey', 'Liberation', 'Smash King', 'Tired Primate', 'Cherub','Count Macaqula', 'La Baboon', 'Olympia', 'Bank Robber', 'Chimp Imp', 'Gravity Bangs', 'Jason', 'Robo Kong'], "weight": 15},
+        3: {"symbol": 1, "models": ['Chimpool', "Golden Monkey", 'Liberation', 'Smash King', 'Tired Primate', 'Cherub', 'La Baboon', 'Olympia', 'Bank Robber'], "weight": 10},
+        4: {"symbol": 2, "models": None, "weight": 15},
+        5: {"symbol": 2, "models": ['Broken Heart', 'Disco', 'Druid Circle', 'Femme Fatale', 'Honey Cake', 'Sanguine', 'The Lich King', 'The Seeker', 'Wednesday', 'Baller', 'Billiard', 'Daisy', 'Incubus', 'Original Sin', 'World Cup', 'Poor Kitty'], "weight": 10},
+        6: {"symbol": 2, "models": ['Broken Heart', 'Disco', 'Femme Fatale', 'Honey Cake', 'Sanguine', 'The Lich King', 'The Seeker', 'Wednesday', 'Baller', 'Incubus', 'World Cup'], "weight": 10},
+        7: {"symbol": 3, "models": None, "weight": 10},
+        8: {"symbol": 3, "models": ['El Classico', 'Ice Cold', 'Saturn V', 'Short Fuse', 'Spectral Smoke', 'Super Swirls', 'The Shocker', 'Far Out', 'Jazz Cigarette', 'Oil Baron', 'Pink Plume', 'Psychonaut', 'Ashtray', 'Centurion', 'Dark Clouds', 'Rainbow Road', 'Silver Fox', 'The Gentleman', 'Thermal'], "weight": 7},
+        9: {"symbol": 3, "models": ['El Classico', 'Ice Cold', 'Saturn V', 'Short Fuse', 'Spectral Smoke', 'Super Swirls', 'The Shocker', 'Far Out', 'Jazz Cigarette', 'Oil Baron', 'Pink Plume', 'Psychonaut', 'The Gentleman'], "weight": 2},
+        10: {"symbol": 4, "models": None, "weight": 6},
+    }
 }
