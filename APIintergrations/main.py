@@ -23,22 +23,8 @@ async def get_auth_token():
         await client.start()
 
     try:
-        bot_entity = await client.get_users('portals')
-        bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.raw.access_hash)
-        peer = await client.resolve_peer('portals')
-        bot_app = InputBotAppShortName(bot_id=bot, short_name='market')
-
-        web_view = await client.invoke(
-            RequestAppWebView(
-                peer=peer,
-                app=bot_app,
-                platform="desktop",
-            )
-        )
-
-        init_data = unquote(web_view.url.split('tgWebAppData=', 1)[1].split('&tgWebAppVersion', 1)[0])
-        token = f'tma {init_data}'
-        return token
+        
+        return "tma user=%7B%22id%22%3A7102670717%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22aze_official_01%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F9xdU5r1S-B6ZuyON8OMPHr_TaTAYPF8zYBA4RKM0k3M4B_8JoC9MDJQ1PJsDTnYM.svg%22%7D&chat_instance=267653665114097988&chat_type=sender&auth_date=1759857755&signature=zeh9l35pYBn4TN17gJxJ995Qs3F7hICrwJElYkp2D_c95ZqlX31OA0jrrr-5pkuIEHbFNFDA81QDi48TGz0pCg&hash=9a587de458efbd50102e029526cfb909505bc51e96034a4a260b91647371b677"
     finally:
         # Не останавливаем клиент, чтобы переиспользовать
         pass
@@ -55,3 +41,4 @@ async def close_client():
         await _client.stop()
 
         _client = None
+
