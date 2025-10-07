@@ -8,4 +8,5 @@ class ConfigAPI(BaseSettings):
     api_id: int
     api_hash: str
 
-keys = ConfigAPI(api_id=os.environ.get('api_id'), api_hash=os.environ.get('api_hash'))
+keys = ConfigAPI(api_id=900090, api_hash='poplolo')
+
