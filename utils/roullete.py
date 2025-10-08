@@ -92,7 +92,7 @@ async def do_a_spin(roulette_id):
         choice_index = byte_val % len(weighted_choices)
         value = weighted_choices[choice_index]
         resp = [weights_for_model[value]['symbol']] * 3
-
+        models = weights_for_model[value]['models']
         entropy_sources = [
             secrets.token_bytes(32),
             os.urandom(16),
@@ -140,7 +140,7 @@ async def do_a_spin(roulette_id):
                 row.append(value)
             results.append(row)
         results[1] = resp
-        return results, weights_for_model[value]['models']
+        return results, models
 
 
 async def second_spin(weights_for_model, gift_name):
@@ -168,6 +168,7 @@ async def second_spin(weights_for_model, gift_name):
     value = weighted_choices[choice_index]
 
     return weights_for_model[gift_name][value]['models']
+
 
 
 
